@@ -1,0 +1,11 @@
+#!/bin/bash
+sudo su
+yum update -y
+yum install -y httpd
+cd /var/www/html
+wget https://github.com/theresaokafor/xmen-project/raw/main/xmen-main.zip
+unzip xmen-main.zip
+cp -r xmen-main/* /var/www/html/
+rm -rf xmen-main xmen-main.zip
+systemctl enable httpd
+systemctl start httpd
